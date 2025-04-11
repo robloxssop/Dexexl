@@ -563,10 +563,12 @@ local function main()
 			end
 		end
 
-		local newGui = Instance.new("ScreenGui")
-		newGui.DisplayOrder = Main.DisplayOrders.Menu
-		dragTree.Parent = newGui
-		Lib.ShowGui(newGui)
+		local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "DexGui"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui") -- เปลี่ยนจาก CoreGui มาเป็น PlayerGui
+		Lib.ShowGui(gui)
 
 		local dragOutline = create({
 			{1,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="DragSelect",Size=UDim2.new(1,0,1,0),}},
